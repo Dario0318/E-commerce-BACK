@@ -1,0 +1,704 @@
+﻿
+@{
+    ViewData["Title"] = "Maestros";
+    Layout = "~/Presentación/Views/Shared/_Layout.cshtml";    
+}
+<div class="d-flex w-100 h-100 overflow-hidden">
+
+    <div class="col-auto col-sm-3 col-xl-2 bg-body-secondary p-3 border-end h-100 d-flex flex-column">
+        <div class="pb-2 mb-3 border-bottom text-secondary">
+            <span class="fw-bold d-none d-sm-inline text-uppercase small">Zona de maestros</span>
+        </div>
+        <ul class="nav nav-pills flex-column gap-1 w-100">
+            <li class="nav-item">
+                <a class="btn d-flex align-items-center rounded px-3 py-2" 
+                       id="categorias-tab"
+                       data-bs-toggle="tab"
+                       href="#seccionCategorias"
+                       role="tab"
+                   aria-expanded="false" 
+                   aria-controls="seccionCategorias">
+                    <i class="bi bi-tags me-2"></i>
+                    <span class="d-none d-sm-inline">Categorías</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="btn d-flex align-items-center rounded px-3 py-2" 
+                       id="subcategorias-tab"
+                       data-bs-toggle="tab"
+                       href="#seccionSubCategorias"
+                       role="tab"
+                    aria-expanded="false"
+                    aria-controls="seccionSubCategorias">
+                    <i class="bi bi-tag me-2"></i>
+                    <span class="d-none d-sm-inline">SubCategorías</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="btn d-flex align-items-center rounded px-3 py-2" 
+                       id="marcas-tab"
+                       data-bs-toggle="tab"
+                       href="#seccionMarcas"
+                       role="tab"
+                       aria-expanded="false"
+                       aria-controls="seccionMarcas">
+                    <i class="bi bi-bookmark-star me-2"></i>
+                    <span class="d-none d-sm-inline">Marcas</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="btn d-flex align-items-center rounded px-3 py-2" 
+                       id="productos-tab"
+                       data-bs-toggle="tab"
+                       href="#seccionProductos"
+                       role="tab"
+                       aria-expanded="false"
+                       aria-controls="seccionProductos">
+                    <i class="bi bi-box-seam me-2"></i>
+                    <span class="d-none d-sm-inline">Productos</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="btn d-flex align-items-center  rounded px-3 py-2"
+                       id="temporadas-tab"
+                       data-bs-toggle="tab"
+                       href="#seccionTemporadas"
+                       role="tab"
+                       aria-expanded="false"
+                       aria-controls="seccionTemporadas">
+                    <i class="bi bi-calendar-range me-2"></i>
+                    <span class="d-none d-sm-inline">Temporadas</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+<!-- Sección de Categorías: se diseña el popup , la tabla , el titulo, entre otros detalles.-->
+    <div class="tab-content col p-4 overflow-y-auto h-100">
+        <div  class=" tab-pane fade show active col p-4 overflow-y-auto h-100" id="seccionCategorias" role="tabpanel" aria-labelledby="categorias-tab">
+            <div class="collapse show col p-4 overflow-y-auto h-100" id="seccionCategorias">
+                <h2 class="mb-4">Contenido de Categorías</h2>
+                <div class="col-12 col-md-10 col-lg-8 mx-auto">
+                    <div class="d-flex justify-content-between align-items-center w-100">
+    
+                        <div class="form-check d-flex align-items-center gap-2 py-3">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                            <label class="form-check-label" for="flexCheckDefault">
+                                Seleccionar Todos
+                            </label>
+                        </div>
+    
+                        <div class="d-flex align-items-center gap-3 py-3">
+                            <p class="mb-0 fw-semibold">Crear Categoría: </p>
+                            <button class="btn btn-success d-flex align-items-center gap-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                <i class="bi bi-file-earmark-spreadsheet-fill"></i> Crear
+                            </button>
+                            <button class="btn btn-danger d-flex align-items-center gap-2">
+                                <i class="bi bi-trash3-fill"></i> Eliminar
+                            </button>
+                        </div>
+
+                    </div>
+                    <!--Tabla de categorias-->
+                    <div class="table-responsive">
+                        <table class="table table-striped table-hover table-bordered table-sm align-middle">
+                            <caption>Lista de Categorías</caption>
+                            <thead class="table-dark">
+                                <tr>
+                                    <th scope="col" style="width: 5%;">Sel</th>
+                                    <th scope="col" style="width: 5%;">#</th>
+                                    <th scope="col">Código</th>
+                                    <th scope="col" style="width: 15%;">Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault1" /></th>
+                                    <th scope="row">1</th>
+                                    <td>Electrodomésticos</td>
+                                    <td>
+                                        <div class="d-flex gap-1">
+                                            <button class="btn btn-sm btn-warning"><i class="bi bi-pencil-fill"></i></button>
+                                            <button class="btn btn-sm btn-danger"><i class="bi bi-trash3-fill"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault2" /></th>
+                                    <th scope="row">2</th>
+                                    <td>Computadoras</td>
+                                    <td>
+                                        <div class="d-flex gap-1">
+                                            <button class="btn btn-sm btn-warning"><i class="bi bi-pencil-fill"></i></button>
+                                            <button class="btn btn-sm btn-danger"><i class="bi bi-trash3-fill"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!--Sección de botón para crear categoría-->
+                <div class="modal fade" tabindex="-1" id="exampleModal" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Nueva Categoría</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form>
+                                    <div class="mb-3">
+                                        <label for="inputCategoria" class="form-label">Categoría</label>
+                                        <input type="text" class="form-control" id="inputCategoria" placeholder="Ej. Electrodomésticos">
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                <button type="button" class="btn btn-success">Grabar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+<!--Sección de SubCategoría: se presenta la tabla , el popup , la sección de crear subcategoría-->
+        <div class="tab-pane fade show active col p-4 overflow-y-auto h-100" id="seccionSubCategorias" role="tabpanel" aria-labelledby="subcategorias-tab">
+            <div class="collapse show col p-4 overflow-y-auto h-100" id="seccionSubCategorias">
+                <h2 class="mb-4">Contenido de SubCategorías</h2>
+    
+                <div class="col-12 col-md-10 col-lg-8 mx-auto">
+                    <div class="d-flex justify-content-between align-items-center w-100">
+    
+                        <div class="form-check d-flex align-items-center gap-2 py-3">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                            <label class="form-check-label" for="flexCheckDefault">
+                                Seleccionar Todos
+                            </label>
+                        </div>
+    
+                        <div class="d-flex align-items-center gap-3 py-3">
+                            <p class="mb-0 fw-semibold">Crear SubCategoría: </p>
+                            <button class="btn btn-success d-flex align-items-center gap-2" data-bs-toggle="modal" data-bs-target="#ModalSubCategoria">
+                                <i class="bi bi-file-earmark-spreadsheet-fill"></i> Crear
+                            </button>
+                            <button class="btn btn-danger d-flex align-items-center gap-2">
+                                <i class="bi bi-trash3-fill"></i> Eliminar
+                            </button>
+                        </div>
+
+                    </div>
+
+        
+                    <div class="table-responsive">
+                        <table class="table table-striped table-hover table-bordered table-sm align-middle">
+                            <caption>Lista de SubCategorías</caption>
+                            <thead class="table-dark">
+                                <tr>
+                                    <th scope="col" style="width: 5%;">Sel</th>
+                                    <th scope="col" style="width: 5%;">#</th>
+                                    <th scope="col" style="width: 45%;">SubCategoría</th>
+                                    <th scope="col" style="width: 30%;">Categoría</th>
+                                    <th scope="col" style="width: 15%;">Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault1" /></th>
+                                    <th scope="row">1</th>
+                                    <td>Horno Microondas</td>
+                                    <td>Electrodomésticos</td>
+                                    <td>
+                                        <div class="d-flex gap-1">
+                                            <button class="btn btn-sm btn-warning"><i class="bi bi-pencil-fill"></i></button>
+                                            <button class="btn btn-sm btn-danger"><i class="bi bi-trash3-fill"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault2" /></th>
+                                    <th scope="row">2</th>
+                                    <td>Laptops</td>
+                                    <td>Computadoras</td>
+                                    <td>
+                                        <div class="d-flex gap-1">
+                                            <button class="btn btn-sm btn-warning"><i class="bi bi-pencil-fill"></i></button>
+                                            <button class="btn btn-sm btn-danger"><i class="bi bi-trash3-fill"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="modal fade" tabindex="-1" id="ModalSubCategoria" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Nueva SubCategoría</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form>
+                                    <div class="mb-3">
+                                        <label for="inputSubCategoria" class="form-label">SubCategoría</label>
+                                        <input type="text" class="form-control" id="inputSubCategoria" placeholder="Ej. Laptops">
+                                    </div>
+                                    <div>
+                                        <div class="d-flex align-items-center gap-3">
+                                            <p class="mb-0">Categoría: </p>
+                                            <select class="d-flex form-select align-items-center gap-2" aria-label="Default select example">
+                                                <option selected>SubCategorias</option>
+                                                <option value="1">One</option>
+                                                <option value="2">Two</option>
+                                                <option value="3">Three</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                <button type="button" class="btn btn-success">Grabar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+<!--Sección de Marcas-->
+        <div class=" tab-pane fade show active col p-4 overflow-y-auto h-100" id="seccionMarcas" role="tabpanel" aria-labelledby="marcas-tab">
+            <div class="collapse show col p-4 overflow-y-auto h-100" id="seccionMarcas">
+                <h2 class="mb-4">Contenido de Marcas</h2>
+    
+                <div class="col-12 col-md-10 col-lg-8 mx-auto">
+                    <div class="d-flex justify-content-between align-items-center w-100">
+    
+                        <div class="form-check d-flex align-items-center gap-2 py-3">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                            <label class="form-check-label" for="flexCheckDefault">
+                                Seleccionar Todos
+                            </label>
+                        </div>
+    
+                        <div class="d-flex align-items-center gap-3 py-3">
+                            <p class="mb-0 fw-semibold">Crear Marca: </p>
+                            <button class="btn btn-success d-flex align-items-center gap-2" data-bs-toggle="modal" data-bs-target="#ModalMarca">
+                                <i class="bi bi-file-earmark-spreadsheet-fill"></i> Crear
+                            </button>
+                            <button class="btn btn-danger d-flex align-items-center gap-2">
+                                <i class="bi bi-trash3-fill"></i> Eliminar
+                            </button>
+                        </div>
+
+                    </div>
+
+        
+                    <div class="table-responsive">
+                        <table class="table table-striped table-hover table-bordered table-sm align-middle">
+                            <caption>Lista de Marcas</caption>
+                            <thead class="table-dark">
+                                <tr>
+                                    <th scope="col" style="width: 5%;">Sel</th>
+                                    <th scope="col" style="width: 5%;">#</th>
+                                    <th scope="col">Marca</th>
+                                    <th scope="col" style="width: 15%;">Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault1" /></th>
+                                    <th scope="row">1</th>
+                                    <td>Lenovo</td>
+                                    <td>
+                                        <div class="d-flex gap-1">
+                                            <button class="btn btn-sm btn-warning"><i class="bi bi-pencil-fill"></i></button>
+                                            <button class="btn btn-sm btn-danger"><i class="bi bi-trash3-fill"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault2" /></th>
+                                    <th scope="row">2</th>
+                                    <td>Asus</td>
+                                    <td>
+                                        <div class="d-flex gap-1">
+                                            <button class="btn btn-sm btn-warning"><i class="bi bi-pencil-fill"></i></button>
+                                            <button class="btn btn-sm btn-danger"><i class="bi bi-trash3-fill"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="modal fade" tabindex="-1" id="ModalMarca" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Nueva Marca</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form>
+                                    <div class="mb-3">
+                                        <label for="inputMarca" class="form-label">Marca</label>
+                                        <input type="text" class="form-control" id="inputMarca" placeholder="Ej. Lenovo">
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                <button type="button" class="btn btn-success">Grabar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Sección de Productos-->
+        <div class=" tab-pane fade show active col p-4 overflow-y-auto h-100" id="seccionProductos" role="tabpanel" aria-labelledby="productos-tab">
+            <div class="collapse show col p-4 overflow-y-auto h-100" id="seccionProductos">
+                <h2 class="mb-4">Contenido de Productos</h2>
+    
+                <div class="col-12 col-md-10 col-lg-8 mx-auto">
+                    <div class="d-flex justify-content-between align-items-center w-100">
+    
+                        <div class="form-check d-flex align-items-center gap-2 py-3">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                            <label class="form-check-label" for="flexCheckDefault">
+                                Seleccionar Todos
+                            </label>
+                        </div>
+    
+                        <div class="d-flex align-items-center gap-3 py-3">
+                            <p class="mb-0 fw-semibold">Crear Marca: </p>
+                            <button class="btn btn-success d-flex align-items-center gap-2" data-bs-toggle="modal" data-bs-target="#ModalProducto">
+                                <i class="bi bi-file-earmark-spreadsheet-fill"></i> Crear
+                            </button>
+                            <button class="btn btn-danger d-flex align-items-center gap-2">
+                                <i class="bi bi-trash3-fill"></i> Eliminar
+                            </button>
+                        </div>
+
+                    </div>
+
+        
+                    <div class="table-responsive">
+                        <table class="table table-striped table-hover table-bordered table-sm align-middle">
+                            <caption>Lista de Productos</caption>
+                            <thead class="table-dark">
+                                <tr>
+                                    <th scope="col" style="width: 5%;">Sel</th>
+                                    <th scope="col" style="width: 5%;">#</th>
+                                    <th scope="col">img</th>
+                                    <th scope="col">Producto</th>
+                                    <th scope="col">SubCategoría</th>
+                                    <th scope="col">Precio</th>
+                                    <th scope="col" style="width: 15%;">Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault1" /></th>
+                                    <th scope="row">1</th>
+                                    <td></td>
+                                    <td>Laptop Lenovo Ra</td>
+                                    <td>Laptop</td>
+                                    <td>4500</td>
+                                    <td>
+                                        <div class="d-flex gap-1">
+                                            <button class="btn btn-sm btn-warning"><i class="bi bi-pencil-fill"></i></button>
+                                            <button class="btn btn-sm btn-danger"><i class="bi bi-trash3-fill"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault2" /></th>
+                                    <th scope="row">2</th>
+                                    <td></td>
+                                    <td>Mouse ns</td>
+                                    <td>Mouses</td>
+                                    <td>120</td>
+                                    <td>
+                                        <div class="d-flex gap-1">
+                                            <button class="btn btn-sm btn-warning"><i class="bi bi-pencil-fill"></i></button>
+                                            <button class="btn btn-sm btn-danger"><i class="bi bi-trash3-fill"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="modal fade" tabindex="-1" id="ModalProducto" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header bg-primary">
+                                <h5 class="modal-title">Nueva Marca</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form id="productForm" method="post" enctype="multipart/form-data">
+                                    <div>
+                                        <div id ="previewContainer" class="d-flex flex-wrap gap-2 mb-3">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="formFile" class="form-label">Subir imágenes del producto</label>
+                                            <input class="form-control" type="file" id="formFile" name="ArchivosImagenes" accept="image/*" multiple>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="inputProducto" class="form-label">Producto</label>
+                                        <input type="text" class="form-control" id="inputProducto" placeholder="Ej. Lenovo">
+                                    </div>
+                                    <div class="mb-3">
+                                        <input type="text" class="form-control" id="inputPrecio" placeholder="Ingresar precio">
+                                        <label for="floatingInput">Precio</label>
+                                    </div>
+                                    <div class="d-flex align-items-center gap-3">
+                                        <p class="mb-0">Seleccionar subcategoría: </p>
+                                        <select class="d-flex form-select align-items-center gap-2" aria-label="Default select example">
+                                            <option selected>SubCategorias</option>
+                                            <option value="1">One</option>
+                                            <option value="2">Two</option>
+                                            <option value="3">Three</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="inputDescripcionProducto" class="form-label">Descripción</label>
+                                        <textarea class="form-control" id="DescripcionProducto" rows="3"></textarea>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                <button type="button" class="btn btn-success">Grabar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Sección Temporadas -->
+        <div class=" tab-pane fade show active col p-4 overflow-y-auto h-100" id="seccionTemporadas" role="tabpanel" aria-labelledby="temporadas-tab">
+            <div class="collapse show col p-4 overflow-y-auto h-100" id="seccionTemporadas">
+                <h2 class="mb-4">Contenido de Temporadas</h2>
+    
+                <div class="col-12 col-md-10 col-lg-8 mx-auto">
+                    <div class="d-flex justify-content-between align-items-center w-100">
+    
+                        <div class="form-check d-flex align-items-center gap-2 py-3">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                            <label class="form-check-label" for="flexCheckDefault">
+                                Seleccionar Todos
+                            </label>
+                        </div>
+    
+                        <div class="d-flex align-items-center gap-3 py-3">
+                            <p class="mb-0 fw-semibold">Crear Marca: </p>
+                            <button class="btn btn-success d-flex align-items-center gap-2" data-bs-toggle="modal" data-bs-target="#ModalTemporada">
+                                <i class="bi bi-file-earmark-spreadsheet-fill"></i> Crear
+                            </button>
+                            <button class="btn btn-danger d-flex align-items-center gap-2">
+                                <i class="bi bi-trash3-fill"></i> Eliminar
+                            </button>
+                        </div>
+
+                    </div>
+
+        
+                    <div class="table-responsive">
+                        <table class="table table-striped table-hover table-bordered table-sm align-middle">
+                            <caption>Lista de Productos</caption>
+                            <thead class="table-dark">
+                                <tr>
+                                    <th scope="col" style="width: 5%;">Sel</th>
+                                    <th scope="col" style="width: 5%;">#</th>
+                                    <th scope="col">img</th>
+                                    <th scope="col">Producto</th>
+                                    <th scope="col">SubCategoría</th>
+                                    <th scope="col">Precio</th>
+                                    <th scope="col" style="width: 15%;">Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault1" /></th>
+                                    <th scope="row">1</th>
+                                    <td></td>
+                                    <td>Laptop Lenovo Ra</td>
+                                    <td>Laptop</td>
+                                    <td>4500</td>
+                                    <td>
+                                        <div class="d-flex gap-1">
+                                            <button class="btn btn-sm btn-warning"><i class="bi bi-pencil-fill"></i></button>
+                                            <button class="btn btn-sm btn-danger"><i class="bi bi-trash3-fill"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault2" /></th>
+                                    <th scope="row">2</th>
+                                    <td></td>
+                                    <td>Mouse ns</td>
+                                    <td>Mouses</td>
+                                    <td>120</td>
+                                    <td>
+                                        <div class="d-flex gap-1">
+                                            <button class="btn btn-sm btn-warning"><i class="bi bi-pencil-fill"></i></button>
+                                            <button class="btn btn-sm btn-danger"><i class="bi bi-trash3-fill"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="modal fade" tabindex="-1" id="ModalTemporada" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Nueva Temporada</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form>
+                                    <div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="inputMarca" class="form-label">Producto</label>
+                                        <input type="text" class="form-control" id="inputTemporada" placeholder="Ej. Lenovo">
+                                    </div>
+                                    <div class="mb-3">
+                                        <input type="text" class="form-control" id="inputMarca" placeholder="Ingresar precio">
+                                        <label for="floatingInput">Precio</label>
+                                    </div>
+                                    <div class="d-flex align-items-center gap-3">
+                                        <p class="mb-0">Seleccionar subcategoría: </p>
+                                        <select class="d-flex form-select align-items-center gap-2" aria-label="Default select example">
+                                            <option selected>SubCategorias</option>
+                                            <option value="1">One</option>
+                                            <option value="2">Two</option>
+                                            <option value="3">Three</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="inputProducto" class="form-label">Descripción</label>
+                                        <textarea class="form-control" id="textTareaProducto" rows="3"></textarea>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                <button type="button" class="btn btn-success">Grabar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    // Arreglo global para almacenar los archivos reales
+    let archivosCargados = [];
+
+    document.getElementById('formFile').addEventListener('change', function (event) {
+        const files = event.target.files;
+        if (!files) return;
+
+        // Convertimos a array y añadimos los nuevos archivos al arreglo global
+        Array.from(files).forEach(file => {
+            if (file.type.startsWith('image/')) {
+                archivosCargados.push(file);
+            }
+        });
+
+        // Renderizar la vista previa actualizada
+        actualizarPrevisualizacion();
+
+        // Limpiamos el input file para que el usuario pueda volver a seleccionar las mismas fotos si quiere
+        this.value = '';
+    });
+
+    function actualizarPrevisualizacion() {
+        const container = document.getElementById('previewContainer');
+        container.innerHTML = ''; // Limpiar contenedor
+
+        archivosCargados.forEach((file, index) => {
+            const reader = new FileReader();
+
+            reader.onload = function (e) {
+                // Crear el contenedor de la tarjeta pequeña (Columna de Bootstrap)
+                const col = document.createElement('div');
+                col.classList.add('col-4', 'col-md-2', 'position-relative');
+
+                // Crear la imagen
+                const img = document.createElement('img');
+                img.src = e.target.result;
+                img.classList.add('img-thumbnail', 'w-80');
+                img.style.height = '80px';
+                img.style.objectFit = 'cover';
+
+                // Crear el botón de eliminar (Badge rojo flotante de Bootstrap)
+                const btnEliminar = document.createElement('button');
+                btnEliminar.type = 'button';
+                btnEliminar.innerHTML = '&times;'; // El símbolo X
+                btnEliminar.classList.add('btn', 'btn-danger', 'btn-sm', 'position-absolute', 'top-0', 'end-0', 'rounded-circle');
+                btnEliminar.style.transform = 'translate(25%, -25%)';
+                btnEliminar.style.padding = '0px 6px';
+
+                // Evento para eliminar la imagen específica
+                btnEliminar.onclick = function () {
+                    archivosCargados.splice(index, 1); // Remover del arreglo
+                    actualizarPrevisualizacion(); // Re-renderizar
+                };
+
+                // Unir elementos
+                col.appendChild(img);
+                col.appendChild(btnEliminar);
+                container.appendChild(col);
+            }
+
+            reader.readAsDataURL(file);
+        });
+    }
+
+    // INTERCEPTAR EL ENVÍO DEL FORMULARIO
+    document.getElementById('productForm').addEventListener('submit', function (event) {
+        event.preventDefault(); // Detener el envío tradicional
+
+        // Creamos un FormData vacío
+        const formData = new FormData(this);
+
+        // Adjuntamos manualmente los archivos de nuestro arreglo global al FormData
+        // El nombre 'ArchivosImagenes' debe coincidir con el parámetro de tu controlador ASP.NET
+        archivosCargados.forEach(file => {
+            formData.append('ArchivosImagenes', file);
+        });
+
+        // Enviar los datos mediante Fetch (AJAX) a tu Backend
+        fetch(this.action || window.location.href, {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => {
+            if (response.ok) {
+                alert('¡Producto guardado con éxito!');
+                window.location.reload(); // O redirigir
+            } else {
+                alert('Hubo un error al guardar.');
+            }
+        })
+        .catch(error => console.error('Error:', error));
+    });
+</script>
